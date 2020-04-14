@@ -2,22 +2,30 @@ import React from "react";
 
 class Calculator extends React.Component {
   state = {
-    a: 10,
-    b: 5,
+    a: 0,
+    b: 0,
+    showResult: false,
   };
 
   setA = (e) => {
     this.setState({
       a: parseInt(e.target.value),
+      showResult: false,
     });
   };
 
   setB = (e) => {
     this.setState({
       b: parseInt(e.target.value),
+      showResult: false,
     });
   };
 
+  setResultTrue = (e) => {
+    this.setState({
+      showResult: true,
+    });
+  };
   render() {
     const add = this.state.a + this.state.b;
     return (
@@ -36,16 +44,23 @@ class Calculator extends React.Component {
         />
         <br />
         <input className="inputB" onChange={this.setB} />
+        <button onClick={this.setResultTrue}>Result</button>
         <br />
-        {"A: " + this.state.a + ",  " + "B: " + this.state.b} <br />
-        {"ADD: " + add}
-        <br />
-        {"SUB: " + (this.state.a - this.state.b)}
-        <br />
-        {"MUL: " + this.state.a * this.state.b}
-        <br />
-        {"DIV: " + this.state.a / this.state.b}
-        <br />
+        {this.state.showResult ? (
+          <div>
+            {"A: " + this.state.a + ",  " + "B: " + this.state.b} <br />
+            {"ADD: " + add}
+            <br />
+            {"SUB: " + (this.state.a - this.state.b)}
+            <br />
+            {"MUL: " + this.state.a * this.state.b}
+            <br />
+            {"DIV: " + this.state.a / this.state.b}
+            <br />
+          </div>
+        ) : (
+          <div>Click on Button</div>
+        )}
       </div>
     );
   }
