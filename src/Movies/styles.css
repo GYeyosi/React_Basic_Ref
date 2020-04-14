@@ -1,0 +1,11 @@
+.movies-section {
+  margin: auto;
+  /* background-color: red; */
+  display: flex;
+  padding: 20px;
+  justify-content: space-evenly;
+  width: 1200px;
+  height: 80vh;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 2px darkgray;
+}
