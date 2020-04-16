@@ -2,10 +2,20 @@
 import React from "react";
 import Movie from "../Movie/Movie.jsx";
 import "./styles.css";
+import movies from "./movies.js";
 
 class Movies extends React.Component {
-  getMovie = (name, likes, banner) => {
-    return <Movie name={name} likes={likes} banner={banner} />;
+  // state = movies;
+  state = { ...movies }; //This brings only inner things keys, values
+
+  // getMovie = (name, likes, banner) => {
+  //   return <Movie name={name} likes={likes} banner={banner} />;
+  // };
+
+  getMovie = (movie) => {
+    return (
+      <Movie name={movie.name} likes={movie.likes} banner={movie.banner} />
+    );
   };
 
   //   getAlert = () => {
@@ -39,7 +49,7 @@ class Movies extends React.Component {
           //   heroname="MaheshBabu"
         /> */}
 
-        {this.getMovie(
+        {/* {this.getMovie(
           "Maharshi",
           "123.0k",
           "https://www.filmibeat.com/wimgm/1366x70/desktop/2019/05/maharshi_1557295639170.jpg"
@@ -54,6 +64,13 @@ class Movies extends React.Component {
           "123.0k",
           "https://www.filmibeat.com/wimgm/1366x70/desktop/2019/05/maharshi_1557295639170.jpg"
         )}
+         */}
+        {/* {this.getMovie(this.state.maharshi)}
+        {this.getMovie(this.state.avengers)}
+        {this.getMovie(this.state.maharshi)} */}
+        {Object.keys(this.state).map((x) => {
+          return this.getMovie(this.state[x]);
+        })}
       </div>
     );
   }

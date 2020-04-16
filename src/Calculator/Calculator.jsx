@@ -22,10 +22,11 @@ class Calculator extends React.Component {
   };
 
   setResultTrue = (e) => {
-    this.setState({
-      showResult: true,
+    this.setState((prevState) => {
+      return { showResult: !prevState.showResult };
     });
   };
+
   render() {
     const add = this.state.a + this.state.b;
     return (
