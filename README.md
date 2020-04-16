@@ -1,1 +1,1 @@
-# MovieCards_react
+# This repo contains some basic reactjs codes for reference.
